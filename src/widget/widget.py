@@ -1,3 +1,5 @@
+import importlib.resources
+
 import pandas as pd
 
 
@@ -7,6 +9,7 @@ def print_me():
 
 
 def read_csv():
-    df = pd.read_csv("sample.csv")
+    data_path = importlib.resources.files("widget")
+    df = pd.read_csv(str(data_path / "sample.csv"))
     print(df)
     return df
